@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Currencies;
 use app\models\SignupForm;
+use app\models\Weather;
 
 class SiteController extends Controller
 {
@@ -64,11 +65,14 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $currenciesModel = new Currencies;
+        $weatherModel = new Weather;
+        $weatherModel->getWeather();
 
         return $this->render('index', [
             'rub' => $currenciesModel->getCurrency('R01235'),
             'gbp' => $currenciesModel->getCurrency('R01035'),
             'eur' => $currenciesModel->getCurrency('R01239'),
+            'dataWeather' => $weatherModel->getWeather(),
         ]);
     }
 

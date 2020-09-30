@@ -12,8 +12,6 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 
-$author = '';
-$checking = '';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

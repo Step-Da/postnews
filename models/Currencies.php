@@ -5,7 +5,8 @@
 
     class Currencies extends Model
     {
-        public function getCurrency($id){
+        public function getCurrency($id)
+        {
             include(Yii::getAlias('@app/config/api.php'));
             $languages = simplexml_load_file($api['currency']);
             // if(isset($_COOKIE['exchangeRate'])){

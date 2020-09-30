@@ -1,5 +1,8 @@
 <?php
-    $this->title = 'Главная страница';
+
+use app\models\Weather;
+
+$this->title = 'Главная страница';
 ?>
 <div class="site-index">
     <div class="informer-block">
@@ -19,5 +22,6 @@
     <div class="content">
         ...
         Content
+        
     </div>
 </div>

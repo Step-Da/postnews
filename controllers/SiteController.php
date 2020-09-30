@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Currencies;
 use app\models\SignupForm;
 
 class SiteController extends Controller
@@ -56,13 +57,19 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
+     * Displays homepage.s
      *
      * @return string
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $currenciesModel = new Currencies;
+
+        return $this->render('index', [
+            'rub' => $currenciesModel->getCurrency('R01235'),
+            'gbp' => $currenciesModel->getCurrency('R01035'),
+            'eur' => $currenciesModel->getCurrency('R01239'),
+        ]);
     }
 
     /**

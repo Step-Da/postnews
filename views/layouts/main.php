@@ -11,6 +11,9 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
+$author = '';
+$checking = '';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -19,6 +22,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -46,7 +50,7 @@ AppAsset::register($this);
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'Выйти (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
@@ -68,7 +72,20 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-            ...
+        <div class="tools-box">
+            <ul class="button-field">
+                <?php if(Yii::$app->user->identity->role == "Author") : ?>
+                    <li class="tools-item neon-author" href="/site/signup">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                    </li>
+                <?php endif; ?>
+                <?php if(Yii::$app->user->identity->role == "Checking") : ?>
+                    <li class="tools-item neon-checking">
+                        <i class="fa fa-braille" aria-hidden="true"></i>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
     </div>
 </footer>
 

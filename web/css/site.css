@@ -1,8 +1,15 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet');
+
 html,
 body {
     height: 100%;
     background: #333333;
     color: whitesmoke;
+}
+
+.font-site-text{
+    font-family: 'Playfair Display';
 }
 
 .wrap {
@@ -143,6 +150,7 @@ a.desc:after {
     border-radius: 50%;
     border: 5px solid whitesmoke;
     display: flex;
+    position: fixed;
     justify-content: center;
     align-items: center;
     font-size: 20px;
@@ -177,4 +185,27 @@ a.desc:after {
 
 .item-informer-block{
     margin-left: 20px;
+    margin-top: 5px;
+}
+
+.font-navabr-brand{
+    font-family: 'Playfair Display', serif;
+    color: rgb(228, 37, 37);
+}
+
+.tt{
+    height: 1000px;
+}
+
+.image-error-internet{
+    width: 200px;
+    height: 200px;
+    margin-left: 30%;
+}
+
+.site-error{
+  height: 40em;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }

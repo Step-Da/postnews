@@ -1,8 +1,5 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -20,7 +17,6 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -33,9 +29,7 @@ AppAsset::register($this);
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
+        'options' => ['class' => 'navbar-inverse navbar-fixed-top font-navabr-brand menu'],
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
@@ -61,6 +55,7 @@ AppAsset::register($this);
 
     <div class="container">
         <?= Breadcrumbs::widget([
+            'homeLink' => ['label' => 'Новости', 'url' => '/'],
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
@@ -69,21 +64,34 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
-    <div class="container">
-        <div class="tools-box">
-            <ul class="button-field">
-                <?php if(Yii::$app->user->identity->role == "Author") : ?>
-                    <li class="tools-item neon-author" href="/site/signup">
-                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                    </li>
-                <?php endif; ?>
-                <?php if(Yii::$app->user->identity->role == "Checking") : ?>
-                    <li class="tools-item neon-checking">
-                        <i class="fa fa-braille" aria-hidden="true"></i>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </div>
+    <div class="container-toolbar">      
+        <div class="container-toolbar">
+	        <div class="menu-toggle">
+	        	<span class="fa fa-plus"></span>
+	        </div>
+	        <div class="menu-round">
+	        	<div class="btn-app">
+	        		<div class="fa fa-twitter"></div>
+	        	</div>
+	        	<div class="btn-app">
+	        		<div class="fa fa-pencil"></div>
+	        	</div>
+	        	<div class="btn-app">
+	        		<div class="fa fa-angle-double-up toolbar-button-up"></div>
+	        	</div>
+	        </div>
+	        <div class="menu-line">
+	        	<div class="btn-app">
+                    <div class="fa fa-vk"></div>
+	        	</div>
+	        	<div class="btn-app">
+	        		<div class="fa fa-facebook"></div>
+	        	</div>
+	        	<div class="btn-app">
+	        		<div class="fa fa-instagram"></div>
+	        	</div>
+	        </div>
+	    </div>
     </div>
 </footer>
 

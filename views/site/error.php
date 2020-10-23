@@ -1,27 +1,14 @@
 <?php
-
-/* @var $this yii\web\View */
-/* @var $name string */
-/* @var $message string */
-/* @var $exception Exception */
-
-use yii\helpers\Html;
-
-$this->title = $name;
+    use yii\helpers\Html;
+    $this->title = 'Ошибка подключения';
 ?>
 <div class="site-error">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
+    <div class="error-internet">
+        <div class="image-error">
+            <?= Html::img('@web/image/internet_error.png', ['alt' => 'Наш логотип', 'class' => 'image-error-internet']) ?>
+        <div>
+        <div class="message-error">
+            <h2 class="font-site-text">Подключение к интернету отсутствует</h2>
+        </div>
     </div>
-
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
 </div>

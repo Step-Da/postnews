@@ -68,9 +68,9 @@ class SiteController extends Controller
         $weatherModel = new Weather;
         $weatherModel->getWeather();
 
-        if($weatherModel == false){
-            $this->render('error');
-        }
+        // if($weatherModel == false){
+        //     $this->render('error');
+        // }
         
         return $this->render('index', [
             'rub' => $currenciesModel->getCurrency('R01235'),

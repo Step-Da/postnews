@@ -1,0 +1,50 @@
+.edit-font{
+    color: rgb(14, 12, 12);
+    font-family: 'Playfair Display';
+    align-items: center;
+}
+
+.edit-select{
+    width: 170px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.edit-select-font{
+    width: 170px;
+    height: 35px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.edit-samll-field{
+    margin-right: 10px;
+    border-radius: 5px;
+    height: 35px;
+    text-align: center;
+}
+
+input[type=color] {
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.edit-color-label{
+    margin-right: 5px;
+}
+
+.color-panel{
+    display: flex;
+    flex-direction: column;
+}
+
+.line{
+    display: flex;
+}
+
+.richTextBox{
+    width: 1000px;
+    height: 500px;
+    background-color: white;
+    border-radius: 5px;
+}

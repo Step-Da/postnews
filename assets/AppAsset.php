@@ -24,10 +24,12 @@ class AppAsset extends AssetBundle
         'css/scrollbar.css',
         'css/header.css',
         'css/toolbar.css',
+        'css/editor.css',
     ];
     public $js = [
         'js/JQuery.js',
         'js/toolbar.js',
+        'js/word.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

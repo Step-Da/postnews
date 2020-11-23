@@ -5,6 +5,7 @@
     use yii\web\Controller;
     use yii\web\UploadedFile;
     use app\models\UploadImage;
+    use app\models\Image;
 
     class EditorController extends Controller
     {
@@ -22,14 +23,21 @@
             ]);
         }
 
-        public function actionUpload(){
+        public function actionUpload()
+        {
             $model = new UploadImage();
+            $querySelectImage = Image::find();
+            $gallery = $querySelectImage->where(['id_user' => Yii::$app->user->identity->id])->all();
+
             if(Yii::$app->request->isPost){
                 $model->image = UploadedFile::getInstance($model, 'image');
                 $model->upload();
-                return $this->render('upload', ['model' => $model]);
+                return $this->goBack();
             }
-            return $this->render('upload', ['model' => $model]);
+            return $this->render('upload', [
+                'model' => $model,
+                'gallery' => $gallery,
+            ]);
         }
     }
 ?>

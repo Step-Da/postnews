@@ -209,3 +209,28 @@ a.desc:after {
   align-items: center;
   justify-content: center
 }
+
+.image-form{
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.image-active-form{
+    margin: 15px
+}
+
+.show-image{
+    position: relative;
+}
+
+.show-image img {
+    border: 5px solid #fafafa;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    -webkit-box-shadow: 3px 3px 6px 4px #888;
+    -moz-box-shadow: 3px 3px 6px 4px #888;
+    box-shadow: 3px 3px 6px 4px #888;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}

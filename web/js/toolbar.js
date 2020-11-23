@@ -13,6 +13,11 @@ $('.fa-vk').click(() => { window.open('https:vk.com'); });
 $('.fa-facebook').click(() => { window.open('https:facebook.com'); });
 $('.fa-instagram').click(() => {window.open('https:instagram.com'); });
 $('.fa-twitter').click(() => {window.open('https:twitter.com'); });
+
 $('.fa-pencil').click(() => { 
     window.location.href = '/editor/articles';
+});
+
+$('.gallery').click(() => {
+    window.location.href = '/editor/upload';
 });

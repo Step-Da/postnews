@@ -13,11 +13,28 @@ class m201025_104553_create_image_table extends Migration
     public function up()
     {
         $this->createTable('{{%image}}', [
-            'id' => $this->primaryKey(),
-            'fileName' => $this->char(50)->notNull(),
-            'fileSize' => $this->char(50)->notNull(),
-            'fileType' => $this->char(50)->notNull(),
+            'IdImage' => $this->primaryKey(),
+            'nameImage' => $this->string(50)->notNull(),
+            'pathImage' => $this->string(50)->notNull(),
+            'type' => $this->string(10)->notNull(),
+            'size' => $this->integer()->notNull(),
+            'id_user' => $this->integer()->notNull(),
         ]);
+        
+        $this->createIndex(
+            'index-image-id_user',
+            'image',
+            'id_user'
+        );
+
+        $this->addForeignKey(
+            'fk-image-id_user',
+            'image',
+            'id_user',
+            'user',
+            'id',
+            'CASCADE'
+        );
     }
 
     /**
@@ -25,6 +42,16 @@ class m201025_104553_create_image_table extends Migration
      */
     public function down()
     {
+        $this->dropForeignKey(
+            'fk-image-id_user',
+            'image'
+        );
+
+        $this->dropIndex(
+            'index-image-id_user',
+            'image'
+        );
+
         $this->dropTable('{{%image}}');
     }
 }

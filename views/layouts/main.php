@@ -70,7 +70,7 @@
 	        </div>
 	        <div class="menu-round">
 	        	<div class="btn-app">
-	        		<div class="fa fa-twitter"></div>
+	        		<div class="fa fa-picture-o gallery"></div>
 	        	</div>
 	        	<div class="btn-app">
 	        		<div class="fa fa-pencil"></div>
@@ -88,6 +88,9 @@
 	        	</div>
 	        	<div class="btn-app">
 	        		<div class="fa fa-instagram"></div>
+                </div>
+                <div class="btn-app">
+	        		<div class="fa fa-twitter"></div>
 	        	</div>
 	        </div>
 	    </div>

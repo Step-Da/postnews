@@ -22,8 +22,7 @@
         </tr>
     <?php endforeach; ?>
 </table>
-<param>
-</param>
+
 <fieldset>
     <div class="image-form">
         <div class="image-active-form">

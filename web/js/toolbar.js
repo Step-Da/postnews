@@ -15,7 +15,7 @@ $('.fa-instagram').click(() => {window.open('https:instagram.com'); });
 $('.fa-twitter').click(() => {window.open('https:twitter.com'); });
 
 $('.fa-pencil').click(() => { 
-    window.location.href = '/editor/articles';
+    window.location.href = '/editor/create';
 });
 
 $('.gallery').click(() => {

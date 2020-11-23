@@ -2,6 +2,7 @@
   use yii\helpers\Html; 
   $dir = Yii::getAlias('@web/upload');
 ?>
+
 <div onload="editMode();">
   <div>
     <button onclick="classicToolsMethods('bold');" class="btn btn-dark edit-font"><i class="fa fa-bold"></i></button>
@@ -45,7 +46,6 @@
     <button onclick="classicToolsMethods('unlink');" class="btn btn-dark edit-font"><i class="fa fa-unlink"></i></button>
     <?= Html::dropDownList('fileName', 'null', $list, $param); ?> 
     <button id='addImage' class="btn btn-dark edit-font"><i class="fa fa-file-image-o"></i></button>
-    <!-- <button onclick="toggleSource();" class="btn btn-dark edit-font"><i class="fa fa-code"></i></button> -->
     <button onclick="triggerEditLock();" class="btn btn-dark edit-font"><i class="fa fa-lock"></i></button>
   </div>
   <br>
@@ -74,6 +74,5 @@
     </div>
   </div>
   <br>
-  <iframe name="richTextBox" class="richTextBox"></iframe>
-  <!-- <button onclick="triggerCode();">Code</button> -->
+  <iframe id="richTextBox" name="richTextBox" class="richTextBox"></iframe>
 </div>

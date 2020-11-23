@@ -1,7 +1,8 @@
 <?php
     namespace app\controllers;
-    
-    use Yii;
+
+use app\models\Article;
+use Yii;
     use yii\web\Controller;
     use yii\web\UploadedFile;
     use app\models\UploadImage;
@@ -9,15 +10,23 @@
 
     class EditorController extends Controller
     {
-        public function actionArticles()
+        public function actionCreate()
         {
             $uploadModel = new UploadImage;
+            $model = new Article();
+
             $paramList = [
                 'prompt' => 'Выберите изображение...', 
                 'id' => 'nameFileList',
                 'class' => 'edit-font edit-select-font',
             ];
-            return $this->render('articles',[
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->goBack();
+            }
+
+            return $this->render('create', [
+                'model' => $model,
                 'list' => $uploadModel->selectDirImage(),
                 'param' => $paramList,
             ]);

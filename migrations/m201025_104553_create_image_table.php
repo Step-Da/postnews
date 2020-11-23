@@ -14,7 +14,7 @@ class m201025_104553_create_image_table extends Migration
     {
         $this->createTable('{{%image}}', [
             'IdImage' => $this->primaryKey(),
-            'nameImage' => $this->string(50)->notNull(),
+            'nameImage' => $this->string(50)->notNull()->unique(),
             'pathImage' => $this->string(50)->notNull(),
             'type' => $this->string(10)->notNull(),
             'size' => $this->integer()->notNull(),

@@ -47,11 +47,11 @@ class Article extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idArticle' => 'Id Article',
-            'name' => 'Name',
+            'idArticle' => 'Уникальный номер статьи',
+            'name' => 'Наименование статьи',
             'text' => 'Text',
-            //'id_author' => 'Id Author',
-            //'status' => 'Status',
+            'id_author' => 'Автор',
+            'status' => 'Стаус',
         ];
     }
 

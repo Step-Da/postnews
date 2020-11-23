@@ -71,12 +71,18 @@
 	        <div class="menu-round">
 	        	<div class="btn-app">
 	        		<div class="fa fa-picture-o gallery"></div>
-	        	</div>
-	        	<div class="btn-app">
-	        		<div class="fa fa-pencil"></div>
-	        	</div>
-	        	<div class="btn-app">
-	        		<div class="fa fa-angle-double-up toolbar-button-up"></div>
+                </div>
+                <?php if(Yii::$app->user->identity->role == 'Checking'): ?>
+                    <div class="btn-app">
+	        	        <div class="fa fa-quote-right"></div>
+                    </div>
+                <?php else: ?>
+                    <div class="btn-app">
+	        	        <div class="fa fa-i-cursor"></div>
+                    </div>
+                <?php endif; ?>
+                <div class="btn-app">
+	        	    <div class="fa fa-angle-double-up toolbar-button-up"></div>
 	        	</div>
 	        </div>
 	        <div class="menu-line">

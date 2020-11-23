@@ -1,40 +1,46 @@
 <?php
+    use yii\helpers\Html;
+    use yii\widgets\DetailView;
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-
-/* @var $this yii\web\View */
-/* @var $model app\models\Article */
-
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+    $this->title = $model->name;
+    $this->params['breadcrumbs'][] = ['label' => 'Редакторская', 'url' => ['index']];
+    $this->params['breadcrumbs'][] = $this->title;
+    \yii\web\YiiAsset::register($this);
 ?>
 <div class="article-view">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->idArticle], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->idArticle], [
+        <?= Html::a('Изменить статью', ['update', 'id' => $model->idArticle], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить статью', ['delete', 'id' => $model->idArticle], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены, что хотите удалить статью этого автора?',
                 'method' => 'post',
             ],
         ]) ?>
     </p>
-
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'idArticle',
+            [
+                'label' => 'Номер статьи',
+                'value' => $model->idArticle,
+                'contentOptions' => ['class' => 'siteText'],
+                'captionOptions' => ['class' => 'siteText'],
+            ],
             'name',
-            'text',
-            'id_author',
-            'status',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function($model){
+                    return $model->status ? '<span class="text-success">Статья проверена</span>' : '<span class="text-danger">Статья не проверена</span>';
+                },
+                'captionOptions' => ['class' => 'siteText'],
+            ],
+            'author.username',
         ],
     ]) ?>
-
+    <hr><div>
+        <?= $model->text;?>
+    </div>
 </div>

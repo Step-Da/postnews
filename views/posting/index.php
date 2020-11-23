@@ -1,40 +1,32 @@
 <?php
+    use yii\helpers\Html;
+    use yii\grid\GridView;
 
-use yii\helpers\Html;
-use yii\grid\GridView;
-
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\ArticleSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Articles';
-$this->params['breadcrumbs'][] = $this->title;
+    $this->title = 'Проверка статьей';
+    $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions' => ['class' => 'siteText'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'idArticle',
             'name',
-            'text',
-            'id_author',
-            'status',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'attribute' => 'id_author',
+                'value'=>'author.username',
+            ],
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->status ? '<span class="text-success">Статья проверена</span>' : '<span class="text-danger">Статья не проверена</span>';
+                },
+            ],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {delete}'],
         ],
     ]); ?>
-
-
 </div>

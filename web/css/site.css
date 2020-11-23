@@ -12,6 +12,10 @@ body {
     font-family: 'Playfair Display';
 }
 
+.siteText{
+    color: #333333;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
@@ -181,6 +185,7 @@ a.desc:after {
     box-shadow: 0px 0px 5px whitesmoke;
     color: black;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .item-informer-block{

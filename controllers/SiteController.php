@@ -92,6 +92,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            Yii::$app->session->setFlash('success', 'Авторизация пользователя «'.Yii::$app->user->identity->username.'» успешна');
             return $this->goBack();
         }
 

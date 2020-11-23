@@ -14,7 +14,11 @@ $('.fa-facebook').click(() => { window.open('https:facebook.com'); });
 $('.fa-instagram').click(() => {window.open('https:instagram.com'); });
 $('.fa-twitter').click(() => {window.open('https:twitter.com'); });
 
-$('.fa-pencil').click(() => { 
+$('.fa-quote-right').click(() => { 
+    window.location.href = '/posting/index';
+});
+
+$('.fa-i-cursor').click(() => { 
     window.location.href = '/editor/create';
 });
 

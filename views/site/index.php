@@ -1,4 +1,5 @@
 <?php
+    use app\widgets\Alert;
     $this->title = 'Главная страница новостей';
 ?>
 <div class="site-index">
@@ -29,6 +30,7 @@
         </div>
     </div>
     <div class="content">
+        <?= Alert::widget() ?>
         ...
         Content
         <div class="tt"></div>

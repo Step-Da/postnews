@@ -1,12 +1,14 @@
 <?php
     namespace app\controllers;
+    
+    use Yii;
 
-use app\models\Article;
-use Yii;
     use yii\web\Controller;
     use yii\web\UploadedFile;
     use app\models\UploadImage;
     use app\models\Image;
+    use app\models\ImageSearch;    
+    use app\models\Article;
 
     class EditorController extends Controller
     {
@@ -35,8 +37,11 @@ use Yii;
         public function actionUpload()
         {
             $model = new UploadImage();
-            $querySelectImage = Image::find();
-            $gallery = $querySelectImage->where(['id_user' => Yii::$app->user->identity->id])->all();
+            // $querySelectImage = Image::find();
+            // $gallery = $querySelectImage->where(['id_user' => Yii::$app->user->identity->id])->all();
+
+            $searchModel = new ImageSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
             if(Yii::$app->request->isPost){
                 $model->image = UploadedFile::getInstance($model, 'image');
@@ -45,7 +50,10 @@ use Yii;
             }
             return $this->render('upload', [
                 'model' => $model,
-                'gallery' => $gallery,
+                // 'gallery' => $gallery,
+                
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
             ]);
         }
     }

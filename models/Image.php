@@ -42,9 +42,10 @@ class Image extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nameImage' => 'Name Image',
-            'pathImage' => 'Path Image',
-            'type' => 'Type',
+            'nameImage' => 'Наименование изображения',
+            'pathImage' => 'Превью изображения',
+            'type' => 'Тип изображения',
+            'size' => 'Размер изображения (KB)'
         ];
     }
 }

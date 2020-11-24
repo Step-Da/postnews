@@ -61,3 +61,18 @@ $('#statusList').change(function(){
     let element = document.querySelector('#statusInput');
     element.value = this.value;
 });
+
+$('#roleList').change(function(){
+    let element = document.querySelector('#roleInput');
+    element.value = this.value;
+});
+
+$(document).ready(function(){
+    let element = document.querySelector('#roleInput');
+    if(element.value == 'Author'){
+        document.getElementById("roleList").value="Author";
+    }
+    else{
+        document.getElementById("roleList").value="Checking";
+    }
+});

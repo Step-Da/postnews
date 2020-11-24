@@ -239,3 +239,11 @@ a.desc:after {
     margin-bottom: 15px;
     margin-top: 15px;
 }
+
+.glyphicon-trash:before {
+    content: "\2718";
+}
+
+.glyphicon-eye-open:before {
+    content: "\e105";
+}

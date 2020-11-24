@@ -2,7 +2,7 @@
     use yii\helpers\Html;
 
     $this->title = 'Редакторивание статьи: ' . $model->name;
-    $this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+    $this->params['breadcrumbs'][] = ['label' => 'Список статей', 'url' => ['index']];
     $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->idArticle]];
     $this->params['breadcrumbs'][] = 'Режим редактирования';
 ?>

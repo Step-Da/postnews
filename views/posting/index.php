@@ -7,6 +7,7 @@
 ?>
 <div class="article-index">
     <h1><?= Html::encode($this->title) ?></h1>
+    <?= Html::a('Список пользователей', ['user/index']); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

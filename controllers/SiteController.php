@@ -75,10 +75,14 @@ class SiteController extends Controller
 
         $postnews = $news->where(['status' => 1])->all();
 
-        // if($weatherModel == false){
-        //     $this->render('error');
-        // }
+        if($weatherModel == false){
+            $this->render('network');
+        }
         
+        if(Yii::$app->user->isGuest){
+            Yii::$app->session->setFlash('warning', 'Авторизируйтесь или создайте профиль для расширения возможностей на сайте');
+        }
+
         return $this->render('index', [
             'rub' => $currenciesModel->getCurrency('R01235'),
             'gbp' => $currenciesModel->getCurrency('R01035'),

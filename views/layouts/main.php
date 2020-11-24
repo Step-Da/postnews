@@ -69,16 +69,26 @@
 	        	<span class="fa fa-plus"></span>
 	        </div>
 	        <div class="menu-round">
-	        	<div class="btn-app">
-	        		<div class="fa fa-picture-o gallery"></div>
-                </div>
+                <?php if((Yii::$app->user->identity->role == 'Checking') || (Yii::$app->user->identity->role == 'Author')): ?>
+                    <div class="btn-app">
+                        <div class="fa fa-picture-o gallery"></div>
+                    </div>
+                <?php else: ?>
+                    <div class="btn-app">
+	        	        <div class="fa fa-times"></div>
+                    </div>
+                <?php endif; ?>    
                 <?php if(Yii::$app->user->identity->role == 'Checking'): ?>
                     <div class="btn-app">
 	        	        <div class="fa fa-quote-right"></div>
                     </div>
-                <?php else: ?>
+                <?php elseif(Yii::$app->user->identity->role == 'Author'): ?>
                     <div class="btn-app">
 	        	        <div class="fa fa-i-cursor"></div>
+                    </div>
+                <?php else:?>
+                    <div class="btn-app">
+	        	        <div class="fa fa-times"></div>
                     </div>
                 <?php endif; ?>
                 <div class="btn-app">

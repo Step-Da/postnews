@@ -25,6 +25,8 @@ class AppAsset extends AssetBundle
         'css/header.css',
         'css/toolbar.css',
         'css/editor.css',
+        'css/articles.css',
+        'css/effect.css',
     ];
     public $js = [
         'js/JQuery.js',

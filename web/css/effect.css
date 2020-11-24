@@ -1,0 +1,33 @@
+.slogan-box{
+  display: flex;
+}
+  
+.slogan{
+  width: 30ch;
+  overflow: hidden;
+  color: whitesmoke;
+  font-size: 15px;
+  font-family: 'Playfair Display';
+  white-space: nowrap;
+  border-right: 4px solid slateblue;
+  animation: printed-text 3.5s steps(40),
+             flashin-border .75s step-start infinite;
+}
+  
+@keyframes flashin-border{
+  0%{
+    border-color: slateblue;
+  }
+  50%{
+    border-color: transparent;
+  }
+  100%{
+    border-color: slateblue;
+  }
+}
+
+@keyframes printed-text{
+  from {
+    width: 0%;
+  }
+}

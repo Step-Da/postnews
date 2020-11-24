@@ -29,10 +29,32 @@
             <label><?= $dataWeather->wind->speed;?>&percnt;</label>
         </div>
     </div>
-    <div class="content">
+    <div class="wrapper-content">
         <?= Alert::widget() ?>
-        ...
-        Content
-        <div class="tt"></div>
+        <div class="slogan-box">
+            <h3 class="slogan">Свежие статьи на разные темы ...</h1>
+        </div>
+        <div class="content">
+            <?php foreach($postnews as $news): ?>
+                <ol class="articles">
+                    <li class="articles__article" style="--animation-order:1">
+                        <a class="articles__link" href="site/view?news=<?= $news['idArticle']; ?>">
+                            <div class="articles__content articles__content--lhs">
+                                <h2 class="articles__title"><?= $news['name']?></h2>
+                                <div class="articles__footer">
+                                    <p><?= $news['username']?></p><time>  
+                                </div>
+                            </div>
+                            <div class="articles__content articles__content--rhs" aria-hidden="true">
+                                <h2 class="articles__title"><?= $news['name']?></h2>
+                                <div class="articles__footer">
+                                    <p><?= $news['username']?></p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ol>
+            <?php endforeach;?>
+        </div>
     </div>
 </div>

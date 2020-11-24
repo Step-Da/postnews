@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Article;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,7 +10,9 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\Currencies;
+use app\models\News;
 use app\models\SignupForm;
+use app\models\UserTable;
 use app\models\Weather;
 
 class SiteController extends Controller
@@ -66,6 +69,11 @@ class SiteController extends Controller
         $currenciesModel = new Currencies;
         $weatherModel = new Weather;
         $weatherModel->getWeather();
+        
+        $news = News::find();
+        $author = UserTable::find();
+
+        $postnews = $news->where(['status' => 1])->all();
 
         // if($weatherModel == false){
         //     $this->render('error');
@@ -76,6 +84,19 @@ class SiteController extends Controller
             'gbp' => $currenciesModel->getCurrency('R01035'),
             'eur' => $currenciesModel->getCurrency('R01239'),
             'dataWeather' => $weatherModel->getWeather(),
+            'postnews' => $postnews,
+            'author' => $author
+        ]);
+    }
+
+    public function actionView()
+    {
+        $idNews = $_GET['news'];
+        $news = News::find();
+        $postnews = $news->where(['idArticle' => $idNews])->all();
+
+        return $this->render('view',[
+            'postnews' => $postnews,
         ]);
     }
 

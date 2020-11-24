@@ -24,8 +24,8 @@ function triggerCode(){
     }
 
     var valueArticle = $('#richTextBox').contents().find("body").text();
-    let elem = document.querySelector('#atext');
-    elem.value = valueArticle;
+    let element = document.querySelector('#atext');
+    element.value = valueArticle;
     
 }
 
@@ -55,4 +55,9 @@ $('#addImage').click(function(){
 
 $('#createArticleButton').click(function(){
     triggerCode();
+});
+
+$('#statusList').change(function(){
+    let element = document.querySelector('#statusInput');
+    element.value = this.value;
 });

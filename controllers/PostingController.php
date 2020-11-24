@@ -9,9 +9,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-/**
- * PostingController implements the CRUD actions for Article model.
- */
 class PostingController extends Controller
 {
     /**
@@ -30,7 +27,6 @@ class PostingController extends Controller
     }
 
     /**
-     * Lists all Article models.
      * @return mixed
      */
     public function actionIndex()
@@ -45,10 +41,9 @@ class PostingController extends Controller
     }
 
     /**
-     * Displays a single Article model.
-     * @param integer $id
+     * @param integer
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException
      */
     public function actionView($id)
     {
@@ -58,8 +53,6 @@ class PostingController extends Controller
     }
 
     /**
-     * Creates a new Article model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
@@ -76,11 +69,9 @@ class PostingController extends Controller
     }
 
     /**
-     * Updates an existing Article model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException
      */
     public function actionUpdate($id)
     {
@@ -96,25 +87,20 @@ class PostingController extends Controller
     }
 
     /**
-     * Deletes an existing Article model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer 
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException 
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Article model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Article the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param integer 
+     * @return Article 
+     * @throws NotFoundHttpException 
      */
     protected function findModel($id)
     {

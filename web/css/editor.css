@@ -43,8 +43,12 @@ input[type=color] {
 }
 
 .richTextBox{
-    width: 1000px;
+    width: 100%;
     height: 500px;
     background-color: white;
     border-radius: 5px;
+}
+
+.visibility-block{
+    display: none;
 }

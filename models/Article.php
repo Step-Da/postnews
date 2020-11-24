@@ -49,7 +49,7 @@ class Article extends ActiveRecord
         return [
             'idArticle' => 'Уникальный номер статьи',
             'name' => 'Наименование статьи',
-            'text' => 'Text',
+            'text' => 'поле дял текса статьи',
             'id_author' => 'Автор',
             'status' => 'Стаус',
         ];

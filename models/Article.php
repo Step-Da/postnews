@@ -1,12 +1,11 @@
 <?php
-
 namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "article".
+ * Класс модели для таблицы "article".
  *
  * @property int $idArticle
  * @property string $name
@@ -19,6 +18,8 @@ use yii\db\ActiveRecord;
 class Article extends ActiveRecord
 {
     /**
+     * Получения наименование сущности (таблицы)
+     * 
      * {@inheritdoc}
      */
     public static function tableName()
@@ -27,6 +28,8 @@ class Article extends ActiveRecord
     }
 
     /**
+     * Установка правил валидации для полей
+     * 
      * {@inheritdoc}
      */
     public function rules()
@@ -42,6 +45,8 @@ class Article extends ActiveRecord
     }
 
     /**
+     * Установка наименования полей таблицы в клиентской части
+     * 
      * {@inheritdoc}
      */
     public function attributeLabels()
@@ -56,7 +61,7 @@ class Article extends ActiveRecord
     }
 
     /**
-     * Gets query for [[Author]].
+     * Формирование запроса для [[Author]].
      *
      * @return \yii\db\ActiveQuery
      */

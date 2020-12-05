@@ -1,11 +1,10 @@
 <?php
-
 namespace app\models;
 
 use Yii;
 
 /**
- * This is the model class for table "user".
+ * Класс модели для таблицы "user".
  *
  * @property int $id
  * @property string $username
@@ -23,6 +22,8 @@ use Yii;
 class UserTable extends \yii\db\ActiveRecord
 {
     /**
+     * Получения наименование сущности (таблицы)
+     * 
      * {@inheritdoc}
      */
     public static function tableName()
@@ -31,6 +32,8 @@ class UserTable extends \yii\db\ActiveRecord
     }
 
     /**
+     * Установка правил валидации для полей
+     * 
      * {@inheritdoc}
      */
     public function rules()
@@ -47,6 +50,8 @@ class UserTable extends \yii\db\ActiveRecord
     }
 
     /**
+     * Установка наименования полей таблицы в клиентской части
+     * 
      * {@inheritdoc}
      */
     public function attributeLabels()
@@ -65,7 +70,7 @@ class UserTable extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Articles]].
+     * Формирование запроса для [[Articles]]
      *
      * @return \yii\db\ActiveQuery
      */
@@ -75,7 +80,7 @@ class UserTable extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Images]].
+     * Формирование запроса для [[Images]]
      *
      * @return \yii\db\ActiveQuery
      */

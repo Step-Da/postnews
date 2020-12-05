@@ -1,9 +1,13 @@
 <?php
     use yii\helpers\Html;
     use yii\widgets\ActiveForm;
+
+    $this->title = 'Редактор статей';
+    $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php include(Yii::getAlias('@app/views/editor/word.php')) ?>
 <div class="article-form">
+    <!-- Форма изменения статуса статьи -->
     <?php $form = ActiveForm::begin(); ?>
         <?= $form->field($model, 'name')->textInput(['maxlength' => true, 'id' => 'name']); ?>
         <div class="form-group">

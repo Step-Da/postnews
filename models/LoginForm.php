@@ -1,23 +1,26 @@
 <?php
-
 namespace app\models;
 
 use Yii;
 use yii\base\Model;
 
 /**
+ * Класс модели для обеспечение работы формы авторизации пользователя 
+ * 
  * @property User|null
  */
 class LoginForm extends Model
 {
-    public $username;
-    public $password;
-    public $rememberMe = true;
+    public $username; // Логин пользователя 
+    public $password; // Пароль пользователя 
 
-    private $_user = false;
+    public $rememberMe = true; // Логика запоминания данных профиля пользователя
+    private $_user = false; // Логика авторизованного пользователя
 
 
     /**
+     * Установка правил валидации для полей
+     * 
      * @return array
      */
     public function rules()
@@ -29,6 +32,11 @@ class LoginForm extends Model
         ];
     }
 
+    /**
+     * Установка наименования полей таблицы в клиентской части
+     * 
+     * {@inheritdoc}
+     */
     public function attributeLabels()
     {
         return[
@@ -39,6 +47,8 @@ class LoginForm extends Model
     }
 
     /**
+     * Проверка введенного пользователем пароля при авторизации
+     * 
      * @param string 
      * @param array
      */
@@ -54,6 +64,8 @@ class LoginForm extends Model
     }
 
     /**
+     * Авторизация пользователя в системе новостного портала
+     * 
      * @return bool
      */
     public function login()
@@ -65,6 +77,8 @@ class LoginForm extends Model
     }
 
     /**
+     * Получение данных авторизованного пользователя
+     * 
      * @return User|null
      */
     public function getUser()

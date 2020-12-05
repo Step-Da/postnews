@@ -1,23 +1,27 @@
 <?php
-
 namespace app\controllers;
 
-use app\models\Article;
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
-use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\Currencies;
 use app\models\News;
 use app\models\SignupForm;
 use app\models\UserTable;
 use app\models\Weather;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
+/**
+ *  Контроллер для файлов в директории "Site"
+ * 
+ */
 class SiteController extends Controller
 {
     /**
+     *  Установка правил поведения и работы котроллера
+     * 
      * {@inheritdoc}
      */
     public function behaviors()
@@ -44,6 +48,8 @@ class SiteController extends Controller
     }
 
     /**
+     *  Установка правил поведения и работы котроллера
+     * 
      * {@inheritdoc}
      */
     public function actions()
@@ -60,9 +66,9 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.s
+     * Отображение домашней страницы новостного портала
      *
-     * @return string
+     *  @return mixed
      */
     public function actionIndex()
     {
@@ -93,6 +99,13 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * Создание и отображения объектов модели новостей
+     * Превью содеражнаия новостиы
+     *  
+     * @param string
+     * @return mixed
+     */
     public function actionView()
     {
         $idNews = $_GET['news'];
@@ -105,7 +118,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
+     * Отображение домашней страницы с формой авторизации пользователя новостного портала
      *
      * @return Response|string
      */
@@ -128,19 +141,18 @@ class SiteController extends Controller
     }
 
     /**
-     * Logout action.
+     * Выход из профиля авторизованного пользователя
      *
      * @return Response
      */
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 
     /**
-     * Форма регистрации.
+     * Отображение домашней страницы с формой регистрации профиля пользователя новостного портала
      *
      * @return mixed
      */

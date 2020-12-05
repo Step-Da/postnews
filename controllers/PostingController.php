@@ -1,17 +1,22 @@
 <?php
-
 namespace app\controllers;
 
 use Yii;
-use app\models\Article;
-use app\models\ArticleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use app\models\Article;
+use app\models\ArticleSearch;
 use yii\filters\VerbFilter;
 
+/**
+ * Контроллер для файлов в директории "Posting"
+ * 
+ */
 class PostingController extends Controller
 {
     /**
+     * Установка правил поведения и работы котроллера
+     * 
      * {@inheritdoc}
      */
     public function behaviors()
@@ -27,6 +32,9 @@ class PostingController extends Controller
     }
 
     /**
+     * Создание и отображения объектов модели авторских статей
+     * Основная страница
+     * 
      * @return mixed
      */
     public function actionIndex()
@@ -41,6 +49,9 @@ class PostingController extends Controller
     }
 
     /**
+     * Создание и отображения объектов модели авторских статей
+     * Превью содержания авторской статьи
+     * 
      * @param integer
      * @return mixed
      * @throws NotFoundHttpException
@@ -53,22 +64,9 @@ class PostingController extends Controller
     }
 
     /**
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Article();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idArticle]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
+     * Создание и отображения объектов модели для создания авторских статей 
+     * Изменение статуса авторской статьи (редактирование)
+     * 
      * @param integer
      * @return mixed
      * @throws NotFoundHttpException
@@ -87,6 +85,9 @@ class PostingController extends Controller
     }
 
     /**
+     * Создание и отображения объектов модели для создания авторских статей
+     * Удаление авторской статьи
+     * 
      * @param integer 
      * @return mixed
      * @throws NotFoundHttpException 
@@ -98,6 +99,8 @@ class PostingController extends Controller
     }
 
     /**
+     * Поиск объекта (авторской стаьи) модели по id
+     * 
      * @param integer 
      * @return Article 
      * @throws NotFoundHttpException 

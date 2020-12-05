@@ -5,10 +5,19 @@ use Yii;
 use yii\base\Model;
 use app\models\Image;
 
+/**
+ * Класс модели для обеспечение работы формы загрузки изображения в галерею
+ * 
+ */
 class UploadImage extends Model
 {
-    public $image;
+    public $image; // данные загружаемого изображения
 
+    /**
+     * Установка правил валидации для полей
+     * 
+     * {@inheritdoc}
+     */
     public function rules()
     {
         return[
@@ -16,6 +25,11 @@ class UploadImage extends Model
         ];
     }
 
+    /**
+     * Зашрузка новго изображения на сервер и в базу данных
+     * 
+     * @return Response
+     */
     public function upload()
     {
         $Image = new Image;
@@ -36,6 +50,11 @@ class UploadImage extends Model
         }   
     }
 
+    /**
+     * Установка наименования полей таблицы в клиентской части
+     * 
+     * {@inheritdoc}
+     */
     public function attributeLabels()
     {
         return[
@@ -43,6 +62,11 @@ class UploadImage extends Model
         ];
     }
 
+    /**
+     * Формирование списка изображений пользователя в сиситеме новостного поратала
+     * 
+     * @return string
+     */
     public function selectDirImage()
     {
         $gallery = Image::find()->where(['id_user' => Yii::$app->user->identity->id])->all();
@@ -58,7 +82,6 @@ class UploadImage extends Model
                 }
             }
         }
-
         return $path;
     }
 }

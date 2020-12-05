@@ -8,11 +8,14 @@ use yii\data\ActiveDataProvider;
 use app\models\Image;
 
 /**
- * ImageSearch represents the model behind the search form of `app\models\Image`.
+ * Модель для поиска даннных на основе [`app\models\Image`]
+ * 
  */
 class ImageSearch extends Image
 {
     /**
+     *  Установка правил валидации для полей
+     * 
      * {@inheritdoc}
      */
     public function rules()
@@ -24,15 +27,18 @@ class ImageSearch extends Image
     }
 
     /**
+     * Установка сценария работы модели поиска
+     * 
      * {@inheritdoc}
      */
     public function scenarios()
     {
-        // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
 
     /**
+     * Создание экземпляра поставщика данных с примененным поисковым запросом
+     * 
      * @param array $params*
      * @return ActiveDataProvider
      */

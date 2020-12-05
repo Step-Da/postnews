@@ -4,6 +4,7 @@
 ?>
 
 <div class="article-form">
+    <!-- Форма изменения статуса авторской статьи -->
     <?php $form = ActiveForm::begin(); ?>
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
         <div class="form-group">

@@ -4,14 +4,20 @@ namespace app\models;
 use yii\base\Model;
 use app\models\User;
 
+/**
+ * Класс модели для обеспечение работы формы регистрации пользователя 
+ * 
+ */
 class SignupForm extends Model
 {
-    public $username;
-    public $email;
-    public $password;
+    public $username; // Новый логин пользователя
+    public $email; // Новый адрес электронной почты пользователя
+    public $password; // Новый пароль пользователя
 
 
     /**
+     * Установка правил валидации для полей
+     * 
      * @inheritdoc
      */
     public function rules()
@@ -33,6 +39,11 @@ class SignupForm extends Model
         ];
     }
 
+    /**
+     * Установка наименования полей таблицы в клиентской части
+     * 
+     * {@inheritdoc}
+     */
     public function attributeLabels()
     {
         return[
@@ -43,6 +54,8 @@ class SignupForm extends Model
     }
 
     /**
+     * Регистрация нового профиля пользователя новстного портала
+     * 
      * @return User|null
      */
     public function signup()

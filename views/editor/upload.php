@@ -1,13 +1,13 @@
 <?php
-
-use Codeception\Util\HttpCode;
-use yii\widgets\ActiveForm;
+    use yii\widgets\ActiveForm;
     use yii\helpers\Html;
     use yii\grid\GridView;
-    
+
     $this->title = 'Галерея изображений';
+    $this->params['breadcrumbs'][] = $this->title;
 ?>
 
+<!-- Форма для загрузки нового изображения на сервер и в базу данных  -->
 <fieldset>
     <div class="image-form">
         <div class="image-active-form">
@@ -19,12 +19,14 @@ use yii\widgets\ActiveForm;
     </div>
 <fieldset>
 
+<!-- Отображение новго изображения  -->
 <div class="show-image form-group">
     <?php if($model->image): ?>
         <img src="/upload/<?= $model->image?>" alt="Нет">
     <?php endif; ?>
 </div>
 
+<!-- Отображение галереи  -->
 <div class="form-group">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

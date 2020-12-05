@@ -1,11 +1,10 @@
 <?php
-
 namespace app\models;
 
 use Yii;
 
 /**
- * This is the model class for table "news".
+ * Класс модели для таблицы "news".
  *
  * @property int $idArticle
  * @property string $name
@@ -16,6 +15,8 @@ use Yii;
 class News extends \yii\db\ActiveRecord
 {
     /**
+     * Получения наименование сущности (таблицы)
+     * 
      * {@inheritdoc}
      */
     public static function tableName()
@@ -24,6 +25,8 @@ class News extends \yii\db\ActiveRecord
     }
 
     /**
+     * Установка правил валидации для полей
+     * 
      * {@inheritdoc}
      */
     public function rules()
@@ -37,6 +40,8 @@ class News extends \yii\db\ActiveRecord
     }
 
     /**
+     * Установка наименования полей таблицы в клиентской части
+     * 
      * {@inheritdoc}
      */
     public function attributeLabels()

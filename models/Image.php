@@ -1,12 +1,11 @@
 <?php
-
 namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "image".
+ * Класс модели для таблицы "image".
  *
  * @property int $id
  * @property string $nameImage
@@ -16,6 +15,8 @@ use yii\db\ActiveRecord;
 class Image extends ActiveRecord
 {
     /**
+     * Получения наименование сущности (таблицы)
+     * 
      * {@inheritdoc}
      */
     public static function tableName()
@@ -24,6 +25,8 @@ class Image extends ActiveRecord
     }
 
     /**
+     * Установка правил валидации для полей
+     * 
      * {@inheritdoc}
      */
     public function rules()
@@ -36,6 +39,8 @@ class Image extends ActiveRecord
     }
 
     /**
+     * Установка наименования полей таблицы в клиентской части
+     * 
      * {@inheritdoc}
      */
     public function attributeLabels()

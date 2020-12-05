@@ -2,6 +2,7 @@
     use app\widgets\Alert;
     $this->title = 'Главная страница новостей';
 ?>
+<!-- Информационное поле  -->
 <div class="site-index">
     <div class="informer-block">
         <div class="usd-value item-informer-block">
@@ -29,11 +30,15 @@
             <label><?= $dataWeather->wind->speed;?>&percnt;</label>
         </div>
     </div>
+    <!-- Тело новстной страницы -->
     <div class="wrapper-content">
+        <!-- Виджет  -->
         <?= Alert::widget() ?>
+        <!-- Поле анимации... -->
         <div class="slogan-box">
             <h3 class="slogan">Свежие статьи на разные темы ...</h1>
         </div>
+        <!-- Новостные блоки -->
         <div class="content">
             <?php foreach($postnews as $news): ?>
                 <ol class="articles">

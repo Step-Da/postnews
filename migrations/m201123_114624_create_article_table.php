@@ -3,11 +3,14 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%article}}`.
+ * Миграция для обрабатывания и создания таблицы `{{%article}}`
+ * 
  */
 class m201123_114624_create_article_table extends Migration
 {
     /**
+     * Применение миграционной модели
+     * 
      * {@inheritdoc}
      */
     public function up()
@@ -38,6 +41,8 @@ class m201123_114624_create_article_table extends Migration
     }
 
     /**
+     * Откат миграционной модели
+     * 
      * {@inheritdoc}
      */
     public function down()

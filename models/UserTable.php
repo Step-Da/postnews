@@ -52,9 +52,9 @@ class UserTable extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'role' => 'Role',
+            'id' => 'Идентификатор пользователя',
+            'username' => 'Наименование пользователя',
+            'role' => 'Роль',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',

@@ -35,7 +35,7 @@ class Article extends ActiveRecord
             [['name', 'text', 'id_author', 'status'], 'required'],
             [['id_author', 'status'], 'integer'],
             [['name'], 'string', 'max' => 30],
-            [['text'], 'string', 'max' => 255],
+            [['text'], 'string',],
             [['name'], 'unique'],
             [['id_author'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_author' => 'id']],
         ];

@@ -45,10 +45,20 @@ class UploadImage extends Model
 
     public function selectDirImage()
     {
+        $gallery = Image::find()->where(['id_user' => Yii::$app->user->identity->id])->all();
+
         $list = scandir(Yii::getAlias('upload'), 0);
         unset($list[0],$list[1]);
         unset($list[count($list)-1], $list[count($list)-1]);
-        return $list;
-        
+           
+        foreach($gallery as $image){
+            foreach($list as $data){
+                if ($image['nameImage'] == $data){
+                    $path[] = $data;
+                }
+            }
+        }
+
+        return $path;
     }
 }
